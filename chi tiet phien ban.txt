@@ -1,0 +1,2 @@
+- This version include 8 output for LEDs
+- Also remove special Eff
