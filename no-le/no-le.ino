@@ -180,29 +180,20 @@ int get_pot_val(String datatype, int namepot) {
   }
 }
 void calculator_val() {
-  if ( line_qwe == 1 || line_qwe == 2 || line_qwe == 3 ) {
     if ( tanso1 == 20 ) hsbx_1 = 1;
     else if ( tanso1 != 20 ) hsbx_1 = tanso1/20;
-
     if ( brnon == 250 ) { fa_c_cl_1 = fa_c1 * hsbx_1;   fa_t_cl_1 = fa_t1 * hsbx_1; }
     else if ( brnon != 250 ) { brncl_1 = brnon / 250;   fa_c_cl_1 = fa_c1 * brncl_1 * hsbx_1;   fa_t_cl_1 = fa_t1 * brncl_1 * hsbx_1; }
-  }
 
-  if ( line_asd == 1 || line_asd == 2 || line_asd == 3 ) {
     if ( tanso2 == 20 ) hsbx_2 = 1;
     else if ( tanso2 != 20 ) hsbx_2 = tanso2/20;
-
     if ( brnon2 == 250 ) { fa_c_cl_2 = fa_c2 * hsbx_2;   fa_t_cl_2 = fa_t2 * hsbx_2; }
     else if ( brnon2 != 250 ) { brncl_2 = brnon2 / 250;   fa_c_cl_2 = fa_c2 * brncl_2 * hsbx_2;   fa_t_cl_2 = fa_t2 * brncl_2 * hsbx_2; }
-  }
 
-  if ( line_zxc == 1 || line_zxc == 2 || line_zxc == 3 ) {
     if ( tanso3 == 20 ) hsbx_3 = 1;
     else if ( tanso3 != 20 ) hsbx_3 = tanso3/20;
-
     if ( brnon3 == 250 ) { fa_c_cl_3 = fa_c3 * hsbx_3;   fa_t_cl_3 = fa_t3 * hsbx_3; }
     else if ( brnon3 != 250 ) { brncl_3 = brnon3 / 250;   fa_c_cl_3 = fa_c3 * brncl_3 * hsbx_3;   fa_t_cl_3 = fa_t3 * brncl_3 * hsbx_3; }
-  }
 }
 void led_control(int led, float brn = 0) {
   if (led != 0) analogWrite(led, brn);
@@ -239,8 +230,8 @@ void eff_2_iad(unsigned long &jikan, int &tg_ht, float &tanso, float &brn, float
     if ( fa == 2) { brn = brn - fa_t; }
     if ( brn <= 0 ) {brn = 0; ctn = 0; kpr = 0; krl = 0;}
     if ( tanso >= 21) {
-      if ( stt_ts == 0 ) { led_control(led, brn); stt_ts = 1; }
-      else { led_control(led, brn); stt_ts = 0; }
+      if ( stt_ts == 0 ) { led_control(led, brn); stt_ts = 1;}
+      else { led_control(led); stt_ts = 0;}
     }
     else led_control(led, brn);
   }
@@ -251,7 +242,7 @@ void eff_3_inc(unsigned long &jikan, int &tg_ht, float &tanso, float &brn, float
     if( brn >= brnon ) brn = brnon;
     if (tanso >= 21) {
       if ( stt_ts == 0 ) { led_control(led, brn); stt_ts = 1; }
-      else { led_control(led, brn); stt_ts = 0; }
+      else { led_control(led); stt_ts = 0; }
     }
     else led_control(led, brn);
   }
@@ -262,7 +253,7 @@ void eff_3_dec(unsigned long &jikan, int &tg_ht, float &tanso, float &brn, float
     if( brn < 0 ) { brn = 0; ctn1 = 0; ctn2 = 0; stt_ts = 0; kpr = 0; krl = 0; }
     if (tanso >= 21) {
       if ( stt_ts == 0 ) { led_control(led, brn); stt_ts = 1; }
-      else { led_control(led, brn); stt_ts = 0; }
+      else { led_control(led); stt_ts = 0; }
     }
     else led_control(led, brn);
   }
